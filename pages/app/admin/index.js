@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 
 export default function Admin({ data }) {
   const { first, setFirst } = useContext(TaskContext);
-
+  
   return (
     <>
       <Reports data={data} />
@@ -14,18 +14,14 @@ export default function Admin({ data }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
+  
   const res = await fetch(
-    "http://phpstack-921351-3198370.cloudwaysapps.com/server/api/get_sales",
-    {
-      headers: {
-        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
-      },
-    }
+    "http://phpstack-921351-3198370.cloudwaysapps.com/server/api/get_sales"
   );
 
   const data = await res.json();
-  console.log(data.pizza);
+//  console.log(data.pizza);
   return {
     props: {
       data,
