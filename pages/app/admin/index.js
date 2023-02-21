@@ -14,7 +14,7 @@ export default function Admin({ data }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   
   const res = await fetch(
     "http://phpstack-921351-3198370.cloudwaysapps.com/server/api/get_sales"
