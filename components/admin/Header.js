@@ -127,7 +127,7 @@ export default function Header() {
             <ul>
               <li className={style.logo}>
                 <Link href="/app/admin" className="logo">
-                  <Image src="/assets/img/logo.png" width={60} height={20} alt="Daryan Saltillo" />
+                  <img src="/assets/img/logo.png" alt="Daryan Saltillo" />
                 </Link>
               </li>
               {mapData.map(({ label, route, ico, fun }, ind) => (
