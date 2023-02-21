@@ -15,9 +15,14 @@ export default function Admin({ data }) {
 }
 
 export async function getStaticProps() {
+  
   const res = await fetch(
     "http://phpstack-921351-3198370.cloudwaysapps.com/server/api/get_sales"
   );
+  res.setHeader(
+    'Cache-Control',
+    'no-cache, no-store, max-age=0, must-revalidate'
+  )
   const data = await res.json();
   console.log(data.pizza);
   return {
@@ -27,7 +32,7 @@ export async function getStaticProps() {
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
     // - At most once every 10 seconds
-    revalidate: 60, // In seconds
+    revalidate: 10, // In seconds
   };
 }
 Admin.getLayout = (page) => <Layout>{page}</Layout>;
