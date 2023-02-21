@@ -1,0 +1,177 @@
+.header {
+    width: 50px;
+    height: 100vh;
+    background: linear-gradient(#570000, #020221);
+    position: fixed;
+    left: 0;
+    overflow-x: hidden;
+    transition: all 0.3s;
+    color: #fff;
+    z-index: 999;
+  }
+  .header a{
+    color: #fff;
+  }
+  .header:hover {
+    width: 200px;
+    transition: all 0.3s;
+  }
+  .header:hover .logo img{
+    height: 40px;
+    width: 50%;
+    transition: all 0.3s;
+  }
+  .header a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center ;
+  }
+  .linkText{
+    white-space: pre;
+    position: absolute;
+    left: 50px;
+  }
+  .header ul {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .header li {
+    list-style: none;
+    position: relative;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .header li:hover {
+    transition: all 0.3s;
+    background: #050220;
+  }
+  .ico {
+    position: relative;
+    width: 50px;
+    text-align: center;
+  }
+  
+  .childrenContainer {
+    width: calc(100% - 50px);
+    height: 100vh;
+    margin-left: auto;
+    overflow: hidden;
+  }
+  
+  .subHeader{
+      width: 100%;
+      height: 50px;
+      background: linear-gradient(#570000, #570000);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 0 25px;
+      
+  }
+  .subHeader a, .subHeader button{
+    width: auto;
+    border: 1px solid;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    background-color: transparent;
+    color:#fff;
+    cursor: pointer;
+    min-width: 150px;
+    
+  }
+  .subHeader button {
+    height: 30px;
+  }
+  .subHeader button > img{
+    width: 20px;
+  }
+  .logo{
+      height: 50px !important;
+      width: 100%;
+      justify-content: center;
+      font-size: 0.9em;
+  }
+  .logo:hover{
+      background-color: transparent !important;
+      cursor: pointer;
+  }
+  .children{
+      width: 100%;
+      display: flex;
+      box-sizing: border-box;
+      padding: 30px 25px;
+      height: 100%;
+      overflow-y: auto;
+  }
+
+  .login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    color: #fff !important;
+  }
+  .login_cont {
+    width: 666px;
+    margin: 0 auto;
+    background: gray;
+    height: 666px;
+  }
+  .login_form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: left;
+    background: #2c2c2c;
+  }
+  .input_container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+  .input_container input {
+    height: 35px;
+    min-width: 300px;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+  }
+  .button_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button_container button {
+    min-width: 300px;
+    height: 30px;
+    border: 1px solid #2c2c2c;
+    background: #fff;
+    color: #2c2c2c;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .button_container button:hover {
+    transition: all 0.3s;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+  }
+  
