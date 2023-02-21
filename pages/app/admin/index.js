@@ -14,22 +14,15 @@ export default function Admin({ data }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   
   const res = await fetch(
     "http://phpstack-921351-3198370.cloudwaysapps.com/server/api/get_sales"
   );
 
   const data = await res.json();
-//  console.log(data.pizza);
-  return {
-    props: {
-      data,
-    },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    revalidate: 10, // In seconds
-  };
+
+  // Pass data to the page via props
+  return { props: { data } }
 }
 Admin.getLayout = (page) => <Layout>{page}</Layout>;
