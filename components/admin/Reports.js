@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import es from "date-fns/locale/es";
@@ -9,7 +9,7 @@ function Reports({ data }) {
   const [dateStart, setDateStart] = useState("");
   const [dateEnd, setDateEnd] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(20);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -38,18 +38,13 @@ function Reports({ data }) {
 
   const filterData = () => {
     return data.filter((item) => {
-      const name = item.id.toLowerCase();
-      const lastname = item.id.toLowerCase();
+      const name = item.client.toLowerCase();
+      const id = item.id.toLowerCase();
+      const fullName = `${name} ${id}`; // combinamos name y id en una sola variable
       const date = new Date(item.date).getTime();
 
-      if (nameFilter && name.indexOf(nameFilter.toLowerCase()) === -1) {
-        return false;
-      }
-
-      if (
-        lastnameFilter &&
-        lastname.indexOf(lastnameFilter.toUpperCase()) === -1
-      ) {
+      if (nameFilter && fullName.indexOf(nameFilter.toLowerCase()) === -1) {
+        // buscamos dentro de fullName
         return false;
       }
 
@@ -72,6 +67,17 @@ function Reports({ data }) {
     return filteredData.slice(startIndex, endIndex);
   };
   const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+  useEffect(() => {
+    //  console.log(currentPage);
+    if (Number(currentPage) > Number(totalPages)) {
+      setCurrentPage(totalPages);
+      //setRowsPerPage(parseInt(event.target.value))
+      //   handleFirstPageClick();
+    } else {
+      setCurrentPage(1);
+    }
+    return () => {};
+  }, [totalPages]);
   return (
     <>
       <div className="table-container">
@@ -83,14 +89,6 @@ function Reports({ data }) {
               id="name-filter"
               value={nameFilter}
               onChange={handleNameFilterChange}
-            />
-
-            <label htmlFor="lastname-filter">Filtrar por Apellido:</label>
-            <input
-              type="text"
-              id="lastname-filter"
-              value={lastnameFilter}
-              onChange={handleLastnameFilterChange}
             />
 
             <label htmlFor="date-filter">Filtrar por Fecha:</label>
@@ -121,27 +119,29 @@ function Reports({ data }) {
           </form>
         </div>
         <div className="table-body">
-        <table>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Apellidos</th>
-              <th>Fecha de Nacimiento</th>
-            </tr>
-          </thead>
-          <tbody>
-            {getPaginatedData().map((item, index) => (
-              <tr key={index}>
-                <td>{item.id}</td>
-                <td>{item.client}</td>
-                <td>{item.date}</td>
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Fecha de Nacimiento</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {getPaginatedData().map((item, index) => (
+                <tr key={index}>
+                  <td>{item.id}</td>
+                  <td>{item.client}</td>
+                  <td>{item.date}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
         <div className="pagination">
-          <button disabled={currentPage === 1} onClick={handleFirstPageClick}>Primera página</button>
+          <button disabled={currentPage === 1} onClick={handleFirstPageClick}>
+            Primera página
+          </button>
           <button
             disabled={currentPage === 1}
             onClick={() => handlePageChange(currentPage - 1)}
@@ -159,15 +159,20 @@ function Reports({ data }) {
           >
             Siguiente
           </button>
-          <button disabled={currentPage === totalPages} onClick={handleLastPageClick}>Ultima página</button>
+          <button
+            disabled={currentPage === totalPages}
+            onClick={handleLastPageClick}
+          >
+            Ultima página
+          </button>
 
           <select
             value={rowsPerPage}
             onChange={(event) => setRowsPerPage(parseInt(event.target.value))}
           >
-            <option value="5">5 filas por página</option>
-            <option value="10">10 filas por página</option>
+            <option value="20">20 filas por página</option>
             <option value="50">50 filas por página</option>
+            <option value="100">100 filas por página</option>
           </select>
         </div>
       </div>
