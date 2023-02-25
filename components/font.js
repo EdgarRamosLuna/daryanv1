@@ -4,5 +4,5 @@ export const font = Montserrat({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
-  var: '--font-monse'
+  variable: '--font-monse'
 });

@@ -1,5 +1,6 @@
-import { font } from "@/components/font";
+
 import { MainComponent } from "@/styles/StyledComponent";
+import { font } from "../font";
 import Header from "./Header";
 import style from "./styles.module.css";
 import SubHeader from "./SubHeader";
