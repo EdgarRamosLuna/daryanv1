@@ -122,7 +122,7 @@ function Reports({ data }) {
   CustomInputD.displayName = 'CustomInputD';
   return (
     <>
-      <div className="table-container">
+      <div className="table-container"> 
         <div className="header-container">
           <form autoComplete="off">
             <div className="filter-container">
