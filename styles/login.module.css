@@ -21,8 +21,9 @@
   align-items: center;
   height: 100%;
   text-align: left;
-  background: #570000;
+  background: #fff;
   box-shadow: 0 2px 1px rgb(255, 255, 255);
+  position: relative;
 }
 .input_container {
   display: flex;
@@ -32,14 +33,14 @@
   
 }
 .input_container label{
-  color: #fff !important;
+  color: #570000 !important;
 }
 .input_container input {
   height: 35px;
   min-width: 300px;
-  border: 1px solid #fff;
+  border: 1px solid #570000;
   background: transparent;
-  color: #fff;
+  color: #570000;
   padding: 0 10px;
   box-sizing: border-box;
   outline: none;
@@ -52,16 +53,32 @@
 .button_container button {
   min-width: 300px;
   height: 30px;
-  border: 1px solid #2c2c2c;
+  border: 1px solid #570000;
   background: #fff;
-  color: #2c2c2c;
+  color: #570000;
   margin-top: 15px;
   cursor: pointer;
   transition: all 0.3s;
+  border-radius: 5px;
 }
 .button_container button:hover {
   transition: all 0.3s;
   border: 1px solid #fff;
-  background: transparent;
+  background: #570000;
   color: #fff;
+}
+.logo{
+  width: auto;
+  position: absolute;
+  top: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.forget_container {
+  width: 300px;
+  display: flex;
+  justify-content: end;
+  font-size: 0.9em;
+  color: #520001;
 }

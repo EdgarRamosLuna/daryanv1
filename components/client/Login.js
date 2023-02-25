@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import style from "../../styles/login.module.css";
 
-export default function LoginAdmin() {
+export default function LoginClient() {
   const [user, setUser] = useState(" ");
   const [password, setPassword] = useState("");
   const cleanField = (e) => {
@@ -39,37 +39,32 @@ export default function LoginAdmin() {
                 height={50}
               />
             </div>
-            <div className={style.input_container}>
-              <label htmlFor="user">Usuario:</label>
-              <input
-                type="text"
-                id="user"
-                name=""
-                value={user}
-                onChange={(e) => setUser(e.target.value.replace(" ", ""))}
-              />
-            </div>
-            <div className={style.input_container}>
-              <label htmlFor="password">Contraseña:</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div className={style.forget_container}>
-                <div className="">
-                    <span>
-                      Olvidtaste tu contraseña?
-                    </span>
-                </div>
-            </div>
-            <div className={style.button_container}>
-              <button onClick={(e) => handleClick(e)}>Entrar</button>
-            </div>
-            
+            <form autoComplete="off">
+              <div className={style.input_container}>
+                <label htmlFor="user">Usuario:</label>
+                <input
+                  type="text"
+                  id="user"
+                  name="user"
+                  value={user}
+                  onChange={(e) => setUser(e.target.value)}
+                  onFocus={(e) => setUser(e.target.value.replace(" ", ""))}
+                />
+              </div>
+              <div className={style.input_container}>
+                <label htmlFor="password">Contraseña:</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div className={style.button_container}>
+                <button onClick={(e) => handleClick(e)}>Entrar</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

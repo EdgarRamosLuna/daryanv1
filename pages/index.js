@@ -1,11 +1,19 @@
-export default function Page(){
+import Image from "next/image";
+import { MainComponent } from "@/styles/StyledComponent";
+import { font } from "./font";
+
+export default function Page() {
   return (
     <>
-      <marquee>
-        Gononea
-      </marquee>
-      <blink>Why would somebody use this?</blink>
+    <MainComponent>
 
+      <div className="under-c">
+        <center>
+          <img src="/assets/img/gear.svg" alt="En construccion" />
+          <h1 className={font.className}>Sitio en Construccion</h1>
+        </center>
+      </div>
+    </MainComponent>
     </>
-  )
+  );
 }

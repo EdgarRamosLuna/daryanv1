@@ -3,6 +3,7 @@ body,
 * {
   margin: 0;
   padding: 0;
+  font-family: var(--font-monse);
 }
 .logo {
   justify-content: center;
@@ -25,7 +26,8 @@ table {
 }
 
 thead {
-  background-color: #f5f5f5;
+  background-color: #570000;
+  color: #fff;
 }
 
 th {
@@ -35,17 +37,20 @@ th {
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+  /*background-color: #f9f9f9;*/
 }
 
 td {
   padding: 10px;
   border: 1px solid #ddd;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
 }
 .table-body {
-    height: 80%;
-    overflow-y: auto;
-    margin-bottom: 10px;
+  max-height: 727.188px;
+  overflow-y: auto;
+  
 }
 .boton-paginacion {
   background-color: #e0e0e0;
@@ -66,19 +71,128 @@ td {
   background-color: #570000;
   color: white;
 }
-.table-container{
-    width: 100%;
+.table-container {
+  width: 100%;
 }
 .contenedor-paginacion {
-    display: flex;
-    align-items: center;
-    justify-content: end;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 .paginacion-number {
-    height: 35px;
-    display: flex;
+  height: 35px;
+  display: flex;
 }
 .paginacion-number select {
-    height: 100%;
-    text-align: center;
+  height: 100%;
+  text-align: center;
+}
+.actions {
+  font-size: 1.5em;
+  display: flex;
+  gap: 10px;
+}
+.actions i {
+  cursor: pointer;
+}
+.fa-trash {
+  color: red;
+}
+.fa-pen-to-square {
+  color: green;
+}
+.fa-file-pdf {
+  color: #570000;
+}
+
+.header-container {
+  width: 100%;
+  display: flex;
+  margin: 10px 0;
+  min-height: 57px;
+}
+.filter-container {
+  display: flex;
+  gap: 10px;
+}
+.filter-item {
+  display: flex;
+  gap: 5px;
+  color: #570000
+}
+.filter-item-input {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  
+}
+.filter-item-input input{
+  outline: none;
+  border: 1px solid #570000;
+  box-sizing: border-box;
+  padding: 5px;
+  height: 20px;
+}
+.range {
+  width: auto;
+  min-width: 207.25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  
+}
+.react-datepicker-wrapper{
+  text-align: center;
+}
+.custom-input {
+  cursor: pointer;
+  
+  /*
+  border-radius: 10px;
+  border: 1px solid #570000;
+  color: #fff;
+  background: #570000;
+  box-sizing: border-box;*/
+}
+.custom-input p{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 5px;
+}
+.input-date::before{
+  content: '─';
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+.pagination {
+  display: flex;
+  border: 1px solid #dddddd;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+
+  height: 50px;
+  align-items: center;
+  justify-content: start;
+}
+.pagination button {
+  height: 25px;
+  width: 25px;
+  color: #570000;
+  border: 0;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.pagination select {
+  margin-left: 10px;
+  border: 1px solid #570000;
+  color: #570000;
+}
+.pagination span{
+  margin-left: 5px;
 }
