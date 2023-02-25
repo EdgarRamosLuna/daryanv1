@@ -1,4 +1,4 @@
-import { font } from "@/pages/font";
+import { font } from "@/components/font";
 import { MainComponent } from "@/styles/StyledComponent";
 import Header from "./Header";
 import style from "./styles.module.css";

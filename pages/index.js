@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MainComponent } from "@/styles/StyledComponent";
-import { font } from "./font";
+import { font } from "../components/font";
 
 export default function Page() {
   return (

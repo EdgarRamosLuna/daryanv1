@@ -1,8 +1,8 @@
 import { Montserrat } from '@next/font/google';
 
 export const font = Montserrat({
-  weight: '300',
+  weight: '400',
   subsets: ['latin'],
-
-  variable: '--font-monse'
+  display: 'swap',
+  var: '--font-monse'
 });

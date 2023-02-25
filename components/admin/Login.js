@@ -1,4 +1,4 @@
-import { font } from "@/pages/font";
+import { font } from "@/components/font";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import style from "../../styles/login.module.css";
