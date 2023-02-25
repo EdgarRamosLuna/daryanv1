@@ -113,13 +113,13 @@ function Reports({ data }) {
     },
     [totalPages, currentPage]
   );
-  const CustomInput = forwardRef(({ value, onClick, children }, ref) => (
+  const CustomInputD = forwardRef(({ onClick, children }, ref) => (
     <div className="custom-input" onClick={onClick} ref={ref}>
       {children}
       <i className="fa-solid fa-calendar-days"></i>
     </div>
   ));
-
+  CustomInputD.displayName = 'CustomInputD';
   return (
     <>
       <div className="table-container">
@@ -153,7 +153,7 @@ function Reports({ data }) {
                       timeCaption="Hora"
                       dateFormat="yyyy-MM-dd h:mm aa"
                       customInput={
-                        <CustomInput>
+                        <CustomInputD>
                           <p>
                             Desde:{" "}
                             <span
@@ -164,7 +164,7 @@ function Reports({ data }) {
                                 : ""}
                             </span>
                           </p>
-                        </CustomInput>
+                        </CustomInputD>
                       }
                     />
                   </div>
@@ -180,7 +180,7 @@ function Reports({ data }) {
                       timeCaption="Hora"
                       dateFormat="yyyy-MM-dd h:mm aa"
                       customInput={
-                        <CustomInput>
+                        <CustomInputD>
                           <p>
                             Hasta:
                             <span
@@ -189,7 +189,7 @@ function Reports({ data }) {
                               {formatedDateEnd !== "" ? formatedDateEnd : ""}
                             </span>
                           </p>
-                        </CustomInput>
+                        </CustomInputD>
                       }
                     />
                   </div>
